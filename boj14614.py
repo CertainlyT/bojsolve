@@ -1,6 +1,6 @@
 a, b, c = map(int, input().split())
 
-for i in range(c):
-    a ^= b
-
-print(a)
+if c % 2 == 1:
+    print(a ^ b)
+else:
+    print(a ^ b ^ b)
