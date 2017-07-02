@@ -11,8 +11,8 @@ def change(a, n):
     else:
         return 0
 
-n = int(input())
-for i in range(n):
+num = int(input())
+for i in range(num):
     a, n = map(int, input().split())
     print(change(a, n))
 
