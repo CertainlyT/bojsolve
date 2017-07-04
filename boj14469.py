@@ -10,9 +10,8 @@ num_list.sort(key=operator.itemgetter(0))
 
 total_time = 0
 for i in range(n):
-    if num_list[i][0] >= total_time:
-        total_time = num_list[i][0]
-        total_time += num_list[i][1]
+    if num_list[i][0] > total_time:
+        total_time = num_list[i][0] + num_list[i][1]
     else:
         total_time += num_list[i][1]
 
