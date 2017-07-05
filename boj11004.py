@@ -1,7 +1,7 @@
+import sys
 n, k = map(int, input().split())
 
-num_list = list(map(int, input().split()))
-
-num_list.sort()
-
-print(num_list[k - 1])
+a = sys.stdin.readline().split()
+a = list(map(int, a))
+a.sort()
+print(a[k-1])
