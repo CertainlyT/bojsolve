@@ -1,9 +1,16 @@
-n = int(input())
-num_list = []
+import heapq
+import sys
 
-for i in range(n):
-    a = int(input())
-    num_list.append(a)
 
-for i in range(n):
-    print(sorted(num_list)[i])
+def heap_sort(items):
+    heapq.heapify(items)
+    items[:] = [heapq.heappop(items) for i in range(len(items))]
+
+l = []
+N = int(sys.stdin.readline())
+for i in range(N):
+    l.append(int(sys.stdin.readline()))
+
+heap_sort(l)
+for i in l:
+    print(i)
