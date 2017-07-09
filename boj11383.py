@@ -8,18 +8,17 @@ for i in range(a):
 for j in range(a):
     lst2.append(input())
 
-rst = 0
+rst = []
 for k in range(a):
     c = ""
     for l in range(b):
         c += lst1[k][l] * 2
     if c == lst2[k]:
-        rst = 0
+        rst.append(0)
     else:
-        rst = 1
-        break
+        rst.append(1)
 
-if rst == 0:
+if 1 not in rst:
     print("Eyfa")
 else:
     print("Not Eyfa")
