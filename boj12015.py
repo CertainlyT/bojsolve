@@ -24,5 +24,4 @@ for i in range(1, n):
         lower_bound(lst[i])
         res[right] = lst[i]
 
-print(res)
 print(len(res))
