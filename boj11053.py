@@ -1,30 +1,27 @@
+def lower_bound(a):
+    global right
+    left = 0
+    right = len(res) - 1
+    while right - left > 0:
+        mid = (left + right) // 2
+        if res[mid] < a:
+            left = mid + 1
+        else:
+            right = mid
+    return right
+
+res = []
+
 n = int(input())
 
-num_list = list(map(int, input().split()))
+lst = list(map(int, input().split()))
 
-check_list = []
-
-for i in range(n):
-    if i == 0:
-        check_list.append(num_list[i])
+res.append(lst[0])
+for i in range(1, n):
+    if res[-1] < lst[i]:
+        res.append(lst[i])
     else:
-        if num_list[i] > max(check_list):
-            check_list.append(num_list[i])
-        else:
-            len_check = len(check_list)
-            if check_list[len_check - 2] < num_list[i] < check_list[len_check-1]:
-                check_list[len_check-1] = num_list[i]
-            else:
-                if len(check_list) == 1:
-                    if num_list[i] < check_list[0]:
-                        check_list[0] = num_list[i]
-                else:
-                    for j in range(len(check_list)-1):
-                        if j == 0:
-                            if num_list[i] < check_list[j]:
-                                check_list[j] = num_list[i]
-                        else:
-                            if check_list[j-1] < num_list[i] < check_list[j]:
-                                check_list[j] = num_list[i]
+        lower_bound(lst[i])
+        res[right] = lst[i]
 
-print(len(check_list))
+print(len(res))
