@@ -14,7 +14,6 @@ for i in range(n):
         lst.append(int(s))
         s = ""
 
-# print(lst)
 lst.sort()
 for i in range(len(lst)):
-     print(lst[i])
+    print(lst[i])
