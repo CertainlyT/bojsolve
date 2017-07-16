@@ -1,0 +1,20 @@
+n = int(input())
+
+
+for i in range(1, n):
+    for j in range(n-i):
+        print(" ", end="")
+    for k in range(2 * i - 1):
+        print("*", end="")
+    print()
+
+for i in range(2*n-1):
+    print("*", end="")
+print()
+
+for i in range(2*n-3, 0, -2):
+    for j in range(((2*n - 3) - i)//2 + 1):
+        print(" ", end="")
+    for k in range(i):
+        print("*", end="")
+    print()
