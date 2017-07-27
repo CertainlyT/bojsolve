@@ -14,40 +14,45 @@ def lower_bound(a):
             right = mid
     return right
 
-res = []
 lst = []
-dic = {}
-c = []
-
-n = int(sys.stdin.readline())
-
+n = int(input())
 for i in range(n):
-    a = tuple(map(int, sys.stdin.readline().split()))
-    lst.append(a)
-    c.append(a[1])
-    dic[a[1]] = a[0]
+    lst.append(tuple(map(int, sys.stdin.readline().split())))
 
-lst.sort(key=itemgetter(0))
-res.append(lst[0][1])
+lst.sort(key=itemgetter(1))
+
+res = [lst[0][0]]
+a = [0]
+rst = []
+
 for i in range(1, n):
-    if res[-1] < lst[i][1]:
-        res.append(lst[i][1])
+    if res[-1] < lst[i][0]:
+        res.append(lst[i][0])
+        a.append(res.index(lst[i][0]))
     else:
-        lower_bound(lst[i][1])
-        res[right] = lst[i][1]
+        lower_bound(lst[i][0])
+        res[right] = lst[i][0]
+        a.append(right)
 
-print(lst)
-print(res)
-res = set(res)
-c = set(c)
-d = c - res
-ans = []
+c = max(a)
+d = len(a)-1
+while d >= 0:
+    if a[d] == c:
+        rst.append(lst[d][0])
+        c -= 1
+        d -= 1
+    else:
+        d -= 1
 
-for each in d:
-    ans.append(dic[each])
+rst.sort()
+b = []
+for i in range(n):
+    b.append(lst[i][0])
+b = set(b)
+rst = set(rst)
+e = b - rst
+e = list(e)
+print(n - len(rst))
+for i in range(len(e)):
+    print(e[i], end=" ")
 
-ans.sort()
-
-print(len(ans))
-for each in ans:
-    print(each)
