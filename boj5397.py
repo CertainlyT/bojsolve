@@ -11,11 +11,11 @@ for i in range(int(input())):
                 current_idx += 1
         elif string[j] == "-":
             if current_idx != 0:
-                del passwd[current_idx - 1]
+                passwd = passwd[:current_idx - 1] + passwd[current_idx:]
                 current_idx -= 1
         else:
             if current_idx != len(passwd):
-                passwd.insert(current_idx, string[j])
+                passwd = passwd[:current_idx] + [string[j]] + passwd[current_idx:]
                 current_idx += 1
             else:
                 passwd.append(string[j])
